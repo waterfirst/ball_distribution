@@ -4,10 +4,12 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import time
-from matplotlib import font_manager, rc
+import matplotlib.font_manager as fm
 
+font_path = "./NanumGothic.ttf"  # 폰트 파일의 상대 경로
+font_prop = fm.FontProperties(fname=font_path)
+plt.rcParams["font.family"] = font_prop.get_name()
 
-plt.rcParams["font.family"] = "Malgun Gothic"
 
 
 def create_initial_distribution(case, total_marbles):
