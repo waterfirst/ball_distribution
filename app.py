@@ -9,7 +9,7 @@ import matplotlib.font_manager as fm
 
 plt.rcParams["font.family"] = "NanumGothic"
 plt.rcParams["axes.unicode_minus"] = False
-
+%matplotlib inline
 
 def create_initial_distribution(case, total_marbles):
     if case == "균등 분포":
