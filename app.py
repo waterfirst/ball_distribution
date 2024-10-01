@@ -4,12 +4,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import time
-import matplotlib.font_manager as fm
-
-font_path = "./NanumGothic.ttf"  # 폰트 파일의 상대 경로
-font_prop = fm.FontProperties(fname=font_path)
-plt.rcParams["font.family"] = font_prop.get_name()
-
 
 
 def create_initial_distribution(case, total_marbles):
@@ -50,8 +44,8 @@ def create_histogram(data, title):
     fig, ax = plt.subplots(figsize=(8, 6))
     ax.hist(data.flatten(), bins=50, color="#80fd3d")
     ax.set_title(title)
-    ax.set_xlabel("구슬 갯수")
-    ax.set_ylabel("빈도수")
+    ax.set_xlabel("Number of Marbles")
+    ax.set_ylabel("Frequency")
     return fig
 
 
@@ -106,9 +100,9 @@ if (
 # 초기 분포 표시
 col1, col2 = st.columns(2)
 with col1:
-    st.pyplot(create_histogram(st.session_state.initial_dist, "초기 구슬 분포"))
+    st.pyplot(create_histogram(st.session_state.initial_dist, "Initial Marble Distribution"))
 with col2:
-    st.pyplot(create_marble_plot(st.session_state.current_dist, "현재 구슬 분포"))
+    st.pyplot(create_marble_plot(st.session_state.current_dist, "Current Marble Distribution"))
 
 # 시뮬레이션 실행 및 중단 버튼
 col1, col2 = st.columns(2)
@@ -140,9 +134,9 @@ if start_button:
         # 히스토그램 업데이트
         fig, ax = plt.subplots()
         ax.hist(y.flatten(), bins=50, color="#80fd3d")
-        ax.set_title(f"구슬 분포 (반복: {st.session_state.iteration})")
-        ax.set_xlabel("구슬 갯수")
-        ax.set_ylabel("빈도수")
+        ax.set_title(f"Distribution of Marbles (반복: {st.session_state.iteration})")
+        ax.set_xlabel("Number of Marbles")
+        ax.set_ylabel("Frequency")
         hist_plot.pyplot(fig)
 
         # 진행 상황 업데이트
@@ -159,6 +153,6 @@ if stop_button:
 # 최종 분포 업데이트
 col1, col2 = st.columns(2)
 with col1:
-    st.pyplot(create_marble_plot(st.session_state.initial_dist, "초기 구슬 분포"))
+    st.pyplot(create_marble_plot(st.session_state.initial_dist, "Initial Marble Distribution"))
 with col2:
-    st.pyplot(create_marble_plot(st.session_state.current_dist, "현재 구슬 분포"))
+    st.pyplot(create_marble_plot(st.session_state.current_dist, "Current Marble Distribution"))
