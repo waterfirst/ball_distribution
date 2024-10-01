@@ -4,12 +4,11 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import time
-from matplotlib import font_manager, rc
+import matplotlib.font_manager as fm
 
-# 한글 폰트 설정
-font_path = "NanumGothic.ttf"  # 나눔고딕 폰트 파일의 경로를 지정하세요
-font = font_manager.FontProperties(fname=font_path).get_name()
-rc("font", family=font)
+
+plt.rcParams["font.family"] = "NanumGothic"
+plt.rcParams["axes.unicode_minus"] = False
 
 
 def create_initial_distribution(case, total_marbles):
