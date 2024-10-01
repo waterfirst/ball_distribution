@@ -7,7 +7,7 @@ import time
 from matplotlib import font_manager, rc
 
 # 한글 폰트 설정
-font_path = "NanumGothic-Bold.ttf"  # 나눔고딕 폰트 파일의 경로를 지정하세요
+font_path = "NanumGothic.ttf"  # 나눔고딕 폰트 파일의 경로를 지정하세요
 font = font_manager.FontProperties(fname=font_path).get_name()
 rc("font", family=font)
 
